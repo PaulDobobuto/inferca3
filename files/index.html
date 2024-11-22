@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" type="image/png" href="http://www.ife.gob.ve/public/img/favicon.ico" />
+    <link href="http://www.ife.gob.ve/public/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <title>Inferca - Inicio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-image: url(photo_5012919239450930980_y.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+        header {
+            background-color: rgb(128, 128, 128);
+            color: white;
+            padding: 5px;
+            display: flex;
+            justify-content:space-evenly;
+            align-items: left;
+            font-size: 19px;
+        }
+        footer {
+            text-align: center;
+        }
+        h2 {
+            font-size: 23px;
+            text-align: center;
+        }
+        .imagenpaua {
+            align-items: center;
+            background-image: url(valores_up.png);
+            background-size:cover;
+        }
+        .contenio {
+            font-size: 17px;
+            text-align: center;
+        }
+        nav .menu {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+        nav .menu > li {
+            position: relative;
+            margin-right: 20px; /* Espaciado entre elementos del menú */
+        }
+        nav .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        nav .menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Fondo al pasar el mouse */
+            color: #fff; /* Color de texto al pasar el mouse */
+        }
+        nav .submenu {
+            display: none;
+            position: absolute;
+            top: 100%; /* Colocar debajo del elemento padre */
+            left: 0;
+            background-color: rgb(128, 128, 128);
+            padding: 10px;
+            border-radius: 5px; /* Bordes redondeados */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000; /* Asegurar que esté sobre otros elementos */
+        }
+        nav .menu li:hover .submenu {
+            display: block;
+            animation: fadeIn 0.5s; /* Animación de aparición */
+        }
+        nav .submenu li {
+            margin-bottom: 5px; /* Espaciado entre submenús */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .imagenes img {
+            width: 100%;
+            max-width: 600px;
+            transition: opacity 1s ease-in-out;
+        }
+        .fade-in {
+            opacity: 0;
+        }
+        .fade-in:hover {
+            opacity: 0.5;
+        }
+        .footer-dark {
+            background-color: rgb(64, 64, 64);
+            color: white;
+            padding: 10px;
+            font-size: 15px;
+        }
+        .footer-light {
+            background-color: rgb(241, 241, 241);
+            color: black;
+            padding: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav .menu {
+                flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+                align-items: flex-start; /* Alinear a la izquierda */
+                display: none; /* Ocultar menú por defecto */
+                position: absolute; /* Posicionar absolutamente */
+                top: 110px; /* Ajustar la posición del menú */
+                left: 0; 
+                width: 100%; /* Ancho completo */
+                background-color: rgb(128, 128, 128); /* Fondo del menú */
+                z-index: 100; /* Asegurar que esté sobre otros elementos */
+                padding-top: 10px; /* Espaciado superior */
+                border-top-left-radius: 5px; /* Bordes redondeados superiores */
+                border-top-right-radius: 5px; /* Bordes redondeados superiores */
+                transition: max-height 0.3s ease-in-out; /* Transición suave para abrir/cerrar */
+                max-height: 0; /* Altura inicial cero para el colapso */
+                overflow: hidden; /* Ocultar contenido desbordante */
+            }
+
+            nav.active .menu {
+                display: flex; /* Mostrar menú cuando se activa */
+                max-height: 300px; /* Ajustar la altura máxima al abrir */
+                transition-duration: 0.5s; /* Duración de la transición */
+                padding-bottom: 10px; /* Espaciado inferior al abrir */
+            }
+
+            header {
+                flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+                align-items: flex-start; /* Alinear a la izquierda */
+                padding-bottom: 10px; /* Espaciado inferior adicional */
+            }
+
+            header img {
+                margin-bottom: 10px; /* Espaciado inferior para la imagen del logo */
+                height: 100px; /* Ajustar altura automáticamente */
+                max-width: 100%; /* Ancho máximo del logo */
+            }
+
+           nav .menu > li {
+                margin-right: 0; /* Eliminar margen derecho en pantallas pequeñas */
+                margin-bottom: 10px; /* Espaciado inferior entre elementos del menú */
+           }
+           nav button { 
+               display:block; 
+               background-color:white; 
+               color:black; 
+               border:none; 
+               padding :10px; 
+               cursor:pointer; 
+           }
+
+           nav button:hover { 
+               background-color:#ccc; 
+           }  
+       }
+
+       .wrapper{
+    background: #ddd;
+    padding: 50px;
+    text-align: center;
+}
+
+.wrapper .icon{
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 50%;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 22px;
+  display: inline-block;
+  align-items: center;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  color: #333;
+  text-decoration: none;
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  line-height: 1.5;
+  font-size: 14px;
+  color: #ffffff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+  background-color: #3b5999;
+  color: #ffffff;
+}
+
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background-color: #e1306c;
+  color: #ffffff;
+}
+
+.wrapper .github:hover,
+.wrapper .github:hover .tooltip,
+.wrapper .github:hover .tooltip::before {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.wrapper .youtube:hover,
+.wrapper .youtube:hover .tooltip,
+.wrapper .youtube:hover .tooltip::before {
+  background-color: #de463b;
+  color: #ffffff;
+}
+
+       </style>
+</head>
+<body>
+    <header>
+        <img src="5028513565623037586-removebg-preview.png" height="67" alt="" srcset=""><br> <br> <br>
+        <h1></h1>
+        <!---- <button onclick="toggleMenu()">Menu</button>  Botón para mostrar/ocultar menú -->
+        <nav class="active">
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li>
+                    <a href="#">Sobre Nosotros</a>
+                    <ul class="submenu">
+                        <li><a href="historia.html">Historia</a></li>
+                        <li><a href="ubicacion.html">Ubicación</a></li>
+                    </ul>
+                </li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="stock.html">Productos</a></li>
+                <li><a href="formulario.html">Formulario</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="contenio">
+        <h2>Insumos Ferroviarios C.A.</h2>
+        <p>Somos INFERCA, una empresa socialista de Insumos Ferroviarios, 
+        elaboradora de durmientes de concreto postensado para la vía férrea de diseño DYWIDAG, única en Latinoamérica.
+        Estamos ubicadados estratégicamente en el Estado Lara, esta situación geográfica nos garantiza una mejor distribución de nuestros productos, traduciéndose en una reducción significativa de costos y ahorro en los tiempos de entrega a nuestros clientes.
+
+
+        </p>
+        <img src="1500x500.jpg" alt="" height="250">
+    </div> 
+    <div class="imagenpaua">
+        <br> 
+        <img src="">
+    </div>
+    
+    <footer class="footer-dark">
+        <p>&copy; 2024 Insumos Ferroviarios C.A. - Derechos Reservados.</p>
+        <img src="contacto.png" width="131">
+        <p></p> <br>
+        <div class="wrapper">
+            <a href="https://www.facebook.com/Inferca.ve/?locale=es_LA" class="icon facebook">
+              <div class="tooltip">Facebook</div>
+              <span><i class="fab fa-facebook-f"></i></span>
+            </a>
+            <a href="https://twitter.com/prensa_inferca?lang=es" class="icon twitter">
+              <div class="tooltip">X</div>
+              <span><i class="fab fa-twitter"></i></span>
+            </a>
+            <a href="https://www.instagram.com/Inferca.ve/?hl=es-la" class="icon instagram">
+              <div class="tooltip">Instagram</div>
+              <span><i class="fab fa-instagram"></i></span>
+            </a>
+          </div>
+    </footer>
+    <footer class="footer-light">
+        <p>© 2024. Todos los derechos reservados</p>
+    </footer>
+
+    <!---<script>
+      function toggleMenu() {
+          const menu = document.querySelector('nav');
+          menu.classList.toggle('active'); // Alternar clase para mostrar/ocultar menú
+      }
+    </script> -->
+</body>
+</html>
